@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+}
+body {
+    background: url(./wall-min.png) no-repeat center center;
+    background-size: cover;
+}
+kbd {
+    border: 1px solid red;
+    width: 4em;
+    height: 4em;
+    display: inline-block;
+    text-transform: uppercase;
+    position: relative;
+}
+kbd > button {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: none;
+}
+kbd:hover > button {
+    display: inline-block;
+    cursor: pointer;
+}
+.key {
+    width: 50px;
+    height: 40px;
+    background: linear-gradient(to bottom, #292929 0%,#111111 100%);
+    border: 1px solid #373737;
+    color: #c5c5c5;
+    font-family: Helvetica;
+    font-size: 14px;
+    border-radius: 6px;
+    box-shadow: 0 0 0 1px #1a1b1c, 0 0 0 2px #1f2020, 0 3px 0 2px #080808;
+    position: relative;
+    
+}
+.key:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+}
+.row {
+    margin: 20px;
+}
+.row .key {
+    margin: 0 10px;
+}
+main {
+    height: 100vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wrapper {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+#main {
+    display: inline-block;
+}
+#main > div:nth-child(2) {
+    margin-left: 80px;
+}
+#main > div:nth-child(3) {
+    margin-left: 40px;
+}
+#main > div:nth-child(4) {
+    margin-left: -30px;
+}
+.key img {
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    left: 4px;
+    bottom: 4px;
+}
+.key .text {
+    position: absolute;
+    left: 4px;
+    top: 2px;
+}
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
