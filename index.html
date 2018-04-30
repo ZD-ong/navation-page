@@ -176,12 +176,11 @@
         function listenToUser(hash) {
             var isInputing = false
             document.getElementById('q').onfocus = function () {
-                console.log(1)
                 isInputing = true
             }
             document.getElementById('q').onblur = function () {
-                console.log(1)
                 isInputing = false
+                document.getElementById('q').value = ''
             }
             document.onkeypress = function (whatever) {
                 if (!isInputing) {
