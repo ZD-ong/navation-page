@@ -7,8 +7,47 @@ a {
     text-decoration: none;
 }
 body {
+    height: 100vh;
     background: url(./wall-min.png) no-repeat center center;
     background-size: cover;
+    overflow: hidden;
+}
+header {
+    padding-top: 80px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 30px;
+}
+input#q{
+    color: #ccc;
+    padding-left: 6px;
+    padding-bottom: 2px;
+    width: 300px;
+	font-size: 12px;
+	border: none;
+	border-bottom: 1px solid #aaa;
+	background: transparent;
+}
+input.search {
+    font-size: 14px;
+    font-weight: 200;
+    margin-left: 6px;
+    color: #aaa;
+    background: transparent;
+    padding: 0 8px;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+}
+input.search:hover {
+    cursor: pointer;
+    transition: 0.5s;
+    color: #fff;
+    border: 1px solid #fff;
+}
+input:focus{
+	outline: none;
 }
 kbd {
     border: 1px solid red;
@@ -51,7 +90,7 @@ kbd:hover > button {
     margin: 0 10px;
 }
 main {
-    height: 100vh;
+    height: 78vh;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -98,4 +137,29 @@ main {
   40%, 60% {
     transform: translate3d(4px, 0, 0);
   }
+}
+input::-webkit-input-placeholder {  /* WebKit browsers */
+    font-size: 12px;
+    font-weight: 300;
+    color: #aaa;
+}
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    font-size: 12px;
+    font-weight: 300;
+    color: #aaa;
+}
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    font-size: 12px;
+    font-weight: 300;
+    color: #aaa;
+}
+input :-ms-input-placeholder { /* Internet Explorer 10+ */
+    font-size: 12px;
+    font-weight: 300;
+    color: #aaa;
+}
+footer {
+    color:#aaa;
+    text-align: center;
+    font-weight: 200;
 }

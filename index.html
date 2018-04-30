@@ -12,9 +12,11 @@
 <body>
     <header>
         <form name="search" action="http://www.baidu.com/s">
-            <input type="text" id="inputing" placeholder="搜索">
-            <input type="button" class="button" onclick="window.open('http://www.baidu.com/s?wd='+search.wd.value,'')" value="百度一下">
-            <input type="button" class="button" onclick="window.open('http://www.google.com/search?q='+search.wd.value,'')" value="谷歌搜索">
+            <input type="text" id="q" name="wd" autocomplete="on" value="" placeholder="搜索">
+            <input class="search" type="button" class="button" onclick="window.open('http://www.baidu.com/s?wd='+search.wd.value,'')"
+                value="百度一下">
+            <input class="search" type="button" class="button" onclick="window.open('http://www.google.com/search?q='+search.wd.value,'')"
+                value="谷歌搜索">
         </form>
     </header>
     <main>
@@ -22,7 +24,9 @@
 
         </div>
     </main>
-    <footer></footer>
+    <footer>
+        <p>使用说明：按下键盘跳转对应的网址（鼠标悬停在键盘上，点击 'E' 可自定义导航网页地址）</p>
+    </footer>
     <script>
 
         //1.初始化数据
@@ -41,7 +45,7 @@
 
 
         //3.监听用户动作
-        
+
         listenToUser(hash);
 
 
@@ -83,12 +87,12 @@
                 'o': 'opera.com',
                 'p': 'python.org',
                 'a': 'apple.com',
-                's': 'sohu.com',
-                'f': 'frankfang.com',
+                's': 'stackoverflow.com',
+                'd': 'douban.com',
                 'g': 'google.com',
                 'z': 'zhihu.com',
+                'b': 'baidu.com',
                 'm': 'www.mcdonalds.com.cn',
-                'f': 'frankfang.com',
                 'l': 'linkedin.com',
                 'd': 'douban.com',
                 'x': 'xiedaimala.com'
@@ -170,19 +174,28 @@
         }
 
         function listenToUser(hash) {
-            document.onkeypress = function (whatever) {
-                
-                // if(!document.getElementById('inputing').value){
-                //     console.log(document.getElementById('inputing').value)
-                // }else {
-                //     var key = whatever['key']; //对应你所按下的键
-                //     var website = hash[key]; //拿到对应的网站
-                //     console.log(website);
-                //     //location.href = 'http://' + website; //直接跳转到你按下的网站
-                //     window.open('http://' + website, '_blank'); //新窗口打开
-                // }
-                
+            var isInputing = false
+            document.getElementById('q').onfocus = function () {
+                console.log(1)
+                isInputing = true
             }
+            document.getElementById('q').onblur = function () {
+                console.log(1)
+                isInputing = false
+            }
+            document.onkeypress = function (whatever) {
+                if (!isInputing) {
+                    var key = whatever['key']; //对应你所按下的键
+                    var website = hash[key]; //拿到对应的网站
+                    console.log(website);
+                    isInputing = false
+                    //location.href = 'http://' + website; 直接跳转到你按下的网站
+                    window.open('http://' + website, '_blank'); //新窗口打开
+
+                }
+
+            }
+
         }
     </script>
 </body>
