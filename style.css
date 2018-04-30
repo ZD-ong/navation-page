@@ -7,6 +7,7 @@ a {
     text-decoration: none;
 }
 body {
+    font-family: 'Tajawal', sans-serif;
     height: 100vh;
     background: url(./wall-min.png) no-repeat center center;
     background-size: cover;
