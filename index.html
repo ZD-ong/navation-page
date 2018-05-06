@@ -176,13 +176,16 @@
 
         function listenToUser(hash) {
             var isInputing = false
-            document.getElementById('q').onfocus = function () {
+            var search_bar = document.getElementById('q')
+            
+            search_bar.onfocus = function () {
                 isInputing = true
+                search_bar.value = ''
             }
-            document.getElementById('q').onblur = function () {
+            search_bar.onblur = function () {
                 isInputing = false
-                document.getElementById('q').value = ''
             }
+            
             document.onkeypress = function (whatever) {
                 if (!isInputing) {
                     var key = whatever['key']; //对应你所按下的键
